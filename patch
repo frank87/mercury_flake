@@ -1,0 +1,52 @@
+diff --git a/extras/graphics/mercury_cairo/cairo.m b/extras/graphics/mercury_cairo/cairo.m
+index b2728cf..32c5535 100644
+--- a/extras/graphics/mercury_cairo/cairo.m
++++ b/extras/graphics/mercury_cairo/cairo.m
+@@ -613,7 +613,7 @@
+     %
+ :- pragma foreign_decl("C", "
+ 
+-#include <cairo.h>
++#include <cairo/cairo.h>
+ 
+ typedef struct {
+     cairo_t         *mcairo_raw_context;
+diff --git a/extras/graphics/mercury_cairo/cairo.pdf.m b/extras/graphics/mercury_cairo/cairo.pdf.m
+index c166ecc..2f24673 100644
+--- a/extras/graphics/mercury_cairo/cairo.pdf.m
++++ b/extras/graphics/mercury_cairo/cairo.pdf.m
+@@ -54,7 +54,7 @@
+ #include \"cairo.mh\"
+ 
+ #if defined(CAIRO_HAS_PDF_SURFACE)
+-  #include <cairo-pdf.h>
++  #include <cairo/cairo-pdf.h>
+ #endif
+ 
+ ").
+diff --git a/extras/graphics/mercury_cairo/cairo.ps.m b/extras/graphics/mercury_cairo/cairo.ps.m
+index c394b52..3c82e3d 100644
+--- a/extras/graphics/mercury_cairo/cairo.ps.m
++++ b/extras/graphics/mercury_cairo/cairo.ps.m
+@@ -95,7 +95,7 @@
+ #include \"cairo.mh\"
+ 
+ #if defined(CAIRO_HAS_PS_SURFACE)
+-  #include <cairo-ps.h>
++  #include <cairo/cairo-ps.h>
+ #else
+   /* These are unlikely to change. */
+   enum {
+diff --git a/extras/graphics/mercury_cairo/cairo.svg.m b/extras/graphics/mercury_cairo/cairo.svg.m
+index eeb9901..01bb948 100644
+--- a/extras/graphics/mercury_cairo/cairo.svg.m
++++ b/extras/graphics/mercury_cairo/cairo.svg.m
+@@ -57,7 +57,7 @@
+ #include \"cairo.mh\"
+ 
+ #if defined(CAIRO_HAS_SVG_SURFACE)
+-  #include <cairo-svg.h>
++  #include <cairo/cairo-svg.h>
+ #else
+   /* These are unlikely to change. */
+   enum {
