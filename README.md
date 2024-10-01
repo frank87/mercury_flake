@@ -8,7 +8,7 @@ create a flake in your source directory like this:
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
-    mercury_flake.url = "https://github.com/frank87/mercury_flake";
+    mercury_flake.url = "github:frank87/mercury_flake";
   };
 
   outputs = { self, nixpkgs, mercury_flake }: {
