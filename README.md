@@ -31,5 +31,5 @@ And build with
     nix build
 
 Outputs:
-    packages.x86_64-linux.<library-name> - libraries from the extras-directory in the main mercury distribution.
-    build  - funtion making a derivation.
+    * packages.x86_64-linux.<library-name> - libraries from the extras-directory in the main mercury distribution.
+    * build  - funtion making a derivation.
