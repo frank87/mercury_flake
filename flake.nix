@@ -79,16 +79,18 @@
 				PATH=$PATH:${mercury}/bin
 				MLIBDIR="${ builtins.foldl' ( x: y:  "${x} --ml ${y.pname} --mld ${y}/lib/mercury " ) "" mercuryLibs }"
 				LDFLAGS=""
-				for DEP in ${ builtins.foldl' ( x: y: "${x} ${y.out}" ) "" buildInputs2 }
+				for DEP in ${ builtins.foldl' ( x: y: "${x} ${y.lib}" ) "" buildInputs2 }
 				do
+					echo $DEP
 					for lib in $DEP/lib/lib*.so
 					do
 						libbase=''${lib%.so}
 						LDFLAGS="$LDFLAGS -l''${libbase##*/lib}"
+						echo $LDFLAGS
 					done
 				done
 				echo mmc $MLIBDIR --make ${pname} $LDFLAGS $MLDFLAGS
-				mmc $MLIBDIR --make ${pname} $LDFLAGS $MLDFLAGS
+				mmc -E $MLIBDIR --make ${pname} $LDFLAGS $MLDFLAGS
 				'';
 
 			installPhase = ''
